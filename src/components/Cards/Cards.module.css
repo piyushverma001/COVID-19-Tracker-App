@@ -1,25 +1,28 @@
 .container {
-    margin: 50px 0;
+  margin: 50px 0;
 }
 
 .card {
-    margin: 0 2% !important;
+  margin: 0 2% !important;
+  background: var(--background) !important;
+  color: var(--on-background) !important;
+  box-shadow: var(--box-shadow) !important;
 }
 
-.infected{
-    border-bottom: 10px solid rgba(0,0,255,0.5);
+.infected {
+  border-bottom: 10px solid rgba(0, 0, 255, 0.5);
 }
 
-.recovered{
-    border-bottom: 10px solid rgba(0,255,0,0.5);
+.recovered {
+  border-bottom: 10px solid rgba(0, 255, 0, 0.5);
 }
 
-.deaths{
-    border-bottom: 10px solid rgba(255,0,0,0.5);
+.deaths {
+  border-bottom: 10px solid rgba(255, 0, 0, 0.5);
 }
 
-@media (max-width: 770px){
-    .card {
-        margin: 2% 0 !important;
-    }
+@media (max-width: 770px) {
+  .card {
+    margin: 2% 0 !important;
+  }
 }
