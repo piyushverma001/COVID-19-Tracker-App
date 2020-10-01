@@ -8,13 +8,21 @@ const Chart = ({data : { confirmed, deaths, recovered}, country}) => {
     const [dailyData, setDailyData] = useState({});
 
     useEffect(() => {
-        const fetchAPI = async () => {
-            setDailyData(await fetchDailyData());
+        if(country){
+            const fetchAPI = async () => {
+                const response=await fetchDailyData()
+                if(response){
+    
+                    setDailyData(response);
+                }
+            }
+    
+            //console.log(dailyData);
+    
+            fetchAPI();
         }
 
-        //console.log(dailyData);
-        fetchAPI();
-    } , []);
+    } , [country]);
     
 
     const lineChart = (
