@@ -1,25 +1,40 @@
+:root {
+  --background: #fafafa;
+  --on-background: #121212;
+  --slider-background: #e8e8e8;
+  --slider-color: #4c4c4c;
+  --box-shadow: 0 2px 7px 1px rgba(0, 0, 0, 0.3);
+}
+
+[data-theme="dark"] {
+  --background: #121212;
+  --on-background: #fafafa;
+  --slider-color: #4c4c4c;
+  --box-shadow: 0 2px 7px 1px rgba(250, 250, 250, 0.2);
+}
+
 body {
-    background-color: rgb(250, 250, 250);
+  background-color: var(--background);
 }
 
 .container {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
 }
 
 .image {
-    width: 370px;
-    margin-top: 50px;
+  width: 370px;
+  margin-top: 50px;
 }
 
 @media (max-width: 770px) {
-    .container {
-        margin : 0 10%;
-    }
+  .container {
+    margin: 0 10%;
+  }
 
-    .image {
-        width: 100%;
-    }
+  .image {
+    width: 100%;
+  }
 }

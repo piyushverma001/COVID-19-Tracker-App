@@ -1,4 +1,8 @@
 .formControl {
-    width: 30%;
-    margin-bottom: 30px !important;
+  width: 30%;
+  margin-bottom: 30px !important;
+}
+
+select {
+  color: var(--on-background) !important;
 }

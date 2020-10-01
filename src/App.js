@@ -1,47 +1,43 @@
-import React from 'react';
-import { Cards, Chart, CountryPicker} from './components';
-import styles from './App.module.css';
+import React from "react";
+import { Cards, Chart, CountryPicker } from "./components";
+import DarkModeSwitch from "./components/DarkModeSwitch/DarkModeSwitch";
+import styles from "./App.module.css";
 
-import {fetchData} from './api';
-import coronaImage from './images/image.png';
-
+import { fetchData } from "./api";
+import coronaImage from "./images/image.png";
 
 class App extends React.Component {
+  state = {
+    data: {},
+    country: "",
+  };
 
-    state = {
-        data: {},
-        country: '',
-    }
+  async componentDidMount() {
+    const fetchedData = await fetchData();
 
+    this.setState({ data: fetchedData });
+  }
 
+  handleCountryChange = async (country) => {
+    const fetchedData = await fetchData(country);
 
-    async componentDidMount() {
-        const fetchedData = await fetchData();
+    this.setState({ data: fetchedData, country: country });
+  };
 
-        this.setState({data : fetchedData});
-    }
+  render() {
+    const { data, country } = this.state;
 
-    handleCountryChange = async (country) => {
-        const fetchedData = await fetchData(country);
-        
-        this.setState({data : fetchedData, country: country});
-    }
+    return (
+      <div className={styles.container}>
+        <img className={styles.image} src={coronaImage} alt="COVID-19" />
+        <DarkModeSwitch />
+        <Cards data={data} />
+        <CountryPicker handleCountryChange={this.handleCountryChange} />
 
-    render() {
-
-        const { data, country } = this.state;
-
-        return (
-            <div className={styles.container}>
-                <img className={styles.image} src={coronaImage} alt="COVID-19" />
-                <Cards data={data}/>
-                <CountryPicker handleCountryChange={this.handleCountryChange}/>
-                
-                <Chart data={data} country = {country}/>
-            </div>
-        )
-    }
+        <Chart data={data} country={country} />
+      </div>
+    );
+  }
 }
-
 
 export default App;
