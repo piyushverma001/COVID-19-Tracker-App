@@ -9,3 +9,23 @@
     width: 100%;
   }
 }
+    font-weight: bold;
+    border-radius: 62.5rem;
+    display: inline-block;
+    position: relative;
+    background-color: #fff;
+    width: 0.75em;
+    height: 0.75em;
+    content: '';
+    margin-right: 0.1875rem;
+    vertical-align: initial;
+    animation: pulse 1s infinite;
+  }
+  @keyframes pulse {
+    0% {
+      background-color: #ae0000;
+    }
+    100% {
+      background-color: #fff;
+    }
+  }
