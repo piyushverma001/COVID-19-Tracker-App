@@ -77,8 +77,11 @@ const Chart = ({data : { confirmed, deaths, recovered}, country}) => {
     )
 
     return( 
+        
        <div className={styles.container}>
            {country ? barChart : lineChart}
+ <div className="live-pulse-icon"></div>
+          <h6 > LIVE</h6>
        </div>
     )
 }
